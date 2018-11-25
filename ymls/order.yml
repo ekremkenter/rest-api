@@ -1,0 +1,35 @@
+createOrder:
+  handler: ./handlers/orderHandler.create
+  events:
+    - http:
+        path: orders # path will be domain.name.com/dev/orders
+        method: post
+        cors: true
+getOneOrder:
+  handler: ./handlers/orderHandler.getOne
+  events:
+    - http:
+        path: orders/{id} # path will be domain.name.com/dev/orders/1
+        method: get
+        cors: true
+getAllOrder:
+  handler: ./handlers/orderHandler.getAll # path will be domain.name.com/dev/orders
+  events:
+  - http:
+      path: orders
+      method: get
+      cors: true
+updateOrder:
+  handler: ./handlers/orderHandler.update # path will be domain.name.com/dev/orders/1
+  events:
+  - http:
+      path: orders/{id}
+      method: put
+      cors: true
+deleteOrder:
+  handler: ./handlers/orderHandler.delete
+  events:
+  - http:
+      path: orders/{id} # path will be domain.name.com/dev/orders/1
+      method: delete
+      cors: true

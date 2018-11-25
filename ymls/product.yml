@@ -1,0 +1,35 @@
+createProduct:
+  handler: ./handlers/productHandler.create
+  events:
+    - http:
+        path: products # path will be domain.name.com/dev/products
+        method: post
+        cors: true
+getOneProduct:
+  handler: ./handlers/productHandler.getOne
+  events:
+    - http:
+        path: products/{id} # path will be domain.name.com/dev/products/1
+        method: get
+        cors: true
+getAllProducts:
+  handler: ./handlers/productHandler.getAll # path will be domain.name.com/dev/products
+  events:
+  - http:
+      path: products
+      method: get
+      cors: true
+updateProduct:
+  handler: ./handlers/productHandler.update # path will be domain.name.com/dev/products/1
+  events:
+  - http:
+      path: products/{id}
+      method: put
+      cors: true
+deleteProducts:
+  handler: ./handlers/productHandler.delete
+  events:
+  - http:
+      path: products/{id} # path will be domain.name.com/dev/products/1
+      method: delete
+      cors: true

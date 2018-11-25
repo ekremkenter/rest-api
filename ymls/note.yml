@@ -1,0 +1,35 @@
+createNote:
+  handler: ./handlers/noteHandler.create # point to exported create function in handler.js
+  events:
+    - http:
+        path: notes # path will be domain.name.com/dev/notes
+        method: post
+        cors: true
+getOneNote:
+  handler: ./handlers/noteHandler.getOne
+  events:
+    - http:
+        path: notes/{id} # path will be domain.name.com/dev/notes/1
+        method: get
+        cors: true
+getAllNotes:
+  handler: ./handlers/noteHandler.getAll # path will be domain.name.com/dev/notes
+  events:
+  - http:
+      path: notes
+      method: get
+      cors: true
+updateNote:
+  handler: ./handlers/noteHandler.update # path will be domain.name.com/dev/notes/1
+  events:
+  - http:
+      path: notes/{id}
+      method: put
+      cors: true
+deleteNote:
+  handler: ./handlers/noteHandler.delete
+  events:
+  - http:
+      path: notes/{id} # path will be domain.name.com/dev/notes/1
+      method: delete
+      cors: true
